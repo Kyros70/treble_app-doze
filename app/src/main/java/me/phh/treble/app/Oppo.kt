@@ -25,11 +25,6 @@ object Oppo: EntryStartup {
                 val value = if(b) "1" else "0"
                 Tools.safeSetprop("persist.sys.phh.oppo.usbotg", value)
             }
-            OppoSettings.dcDiming -> {
-                val b = sp.getBoolean(key, false)
-                val value = if(b) "1" else "0"
-                Tools.safeSetprop("persist.sys.phh.oppo.dc_dimming", value)
-            }
         }
     }
 
@@ -44,6 +39,5 @@ object Oppo: EntryStartup {
         spListener.onSharedPreferenceChanged(sp, OppoSettings.gamingMode)
         spListener.onSharedPreferenceChanged(sp, OppoSettings.dt2w)
         spListener.onSharedPreferenceChanged(sp, OppoSettings.usbOtg)
-        spListener.onSharedPreferenceChanged(sp, OppoSettings.dcDiming)
     }
 }

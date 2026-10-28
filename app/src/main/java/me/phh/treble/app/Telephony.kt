@@ -22,18 +22,9 @@ object Telephony: EntryStartup {
                 val value = sp.getBoolean(key, false)
                 SystemProperties.set("persist.sys.phh.force_display_5g", if(value) "1" else "0")
             }
-            TelephonySettings.simCount -> {
-                val value = sp.getString(key, "default")
-                SystemProperties.set("persist.sys.phh.sim_count", value)
-                Log.d("PHH", "Setting SIM count to $value")
-            }
             TelephonySettings.patchSmsc -> {
                 val value = sp.getBoolean(key, true)
                 SystemProperties.set("persist.sys.phh.patch_smsc", if (value) "true" else "false")
-            }
-            TelephonySettings.restrictednetworking -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.restricted_networking", if(value) "1" else "0")
             }
         }
     }
@@ -46,6 +37,5 @@ object Telephony: EntryStartup {
 
         // Refresh parameters on boot
         spListener.onSharedPreferenceChanged(sp, TelephonySettings.mobileSignal)
-        spListener.onSharedPreferenceChanged(sp, TelephonySettings.restrictednetworking)
     }
 }

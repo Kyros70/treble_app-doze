@@ -119,18 +119,6 @@ object Display: EntryStartup {
                 val value = sp.getBoolean(key, false)
                 SystemProperties.set("persist.sys.phh.sf_disable_backpressure", if (value) "1" else "0")
             }
-            DisplaySettings.sfBlurAlgorithm -> {
-                val value = sp.getString(key, "kawase")
-                SystemProperties.set("persist.sys.phh.sf.background_blur", value)
-            }
-            DisplaySettings.sfRenderEngineBackend -> {
-                val value = sp.getString(key, "")
-                SystemProperties.set("persist.sys.phh.sf.renderengine.backend", value)
-            }
-            DisplaySettings.sfHwuiBackend -> {
-                val value = sp.getString(key, "")
-                SystemProperties.set("persist.sys.phh.sf.debug.renderengine.backend", value)
-            }
         }
     }
 

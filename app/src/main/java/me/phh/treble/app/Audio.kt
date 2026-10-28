@@ -56,39 +56,6 @@ object Audio: EntryStartup {
                 val value = sp.getString(key, "0")
                 SystemProperties.set("persist.sys.bt.esco_transport_unit_size", value)
             }
-            AudioSettings.maxBTAudioDevices -> {
-                val value = sp.getString(key, "1")?.toInt() ?: 1
-                if (value >= 1) {
-                    SystemProperties.set("persist.bluetooth.maxconnectedaudiodevices", value.toString())
-                } else {
-                    SystemProperties.set("persist.bluetooth.maxconnectedaudiodevices", null)
-                }
-            }
-            AudioSettings.unsupportedCommands -> {
-                val value = sp.getString(key, "")
-                SystemProperties.set("persist.sys.bt.unsupported.commands", value)
-                Log.d("PHH-Audio", "Setting Bluetooth unsupported commands to $value")
-            }
-            AudioSettings.unsupportedOgFeatures -> {
-                val value = sp.getString(key, "")
-                SystemProperties.set("persist.sys.bt.unsupported.ogfeatures", value)
-                Log.d("PHH-Audio", "Setting Bluetooth unsupported og features to $value")
-            }
-            AudioSettings.unsupportedLeFeatures -> {
-                val value = sp.getString(key, "")
-                SystemProperties.set("persist.sys.bt.unsupported.lefeatures", value)
-                Log.d("PHH-Audio", "Setting Bluetooth unsupported le features to $value")
-            }
-            AudioSettings.unsupportedStates -> {
-                val value = sp.getString(key, "")
-                SystemProperties.set("persist.sys.bt.unsupported.states", value)
-                Log.d("PHH-Audio", "Setting Bluetooth unsupported states to $value")
-            }
-            AudioSettings.leVersionCap -> {
-                val value = sp.getString(key, "")
-                SystemProperties.set("persist.sys.bt.max_vendor_cap", value)
-                Log.d("PHH-Audio", "Capping Bluetooth LE version to $value")
-            }
             AudioSettings.disableLeApcfExtended -> {
                 val value = sp.getBoolean(key, false)
                 SystemProperties.set("persist.sys.bt.le.disable_apcf_extended_features", if (value) "1" else "0")
@@ -103,21 +70,9 @@ object Audio: EntryStartup {
         sp.registerOnSharedPreferenceChangeListener(spListener)
 
         // Refresh parameters on boot
-        val unsupportedCommands = sp.getString(AudioSettings.unsupportedCommands, "none")
-
-        spListener.onSharedPreferenceChanged(sp, AudioSettings.unsupportedCommands)
-        spListener.onSharedPreferenceChanged(sp, AudioSettings.unsupportedOgFeatures)
-        spListener.onSharedPreferenceChanged(sp, AudioSettings.unsupportedLeFeatures)
-        spListener.onSharedPreferenceChanged(sp, AudioSettings.unsupportedStates)
-        spListener.onSharedPreferenceChanged(sp, AudioSettings.leVersionCap)
 
         sp.edit().putBoolean(AudioSettings.sysbta, SystemProperties.getBoolean("persist.bluetooth.system_audio_hal.enabled", false)).apply()
         if (SamsungSettings.enabled(ctxt)) { sp.edit().putString(AudioSettings.escoTransportUnitSize, "16").apply() }
-        if (unsupportedCommands.isNullOrEmpty()) {
-            if (HuaweiSettings.enabled(ctxt)) { sp.edit().putString(AudioSettings.workarounds, "huawei").apply() }
-            if (MediatekSettings.enabled(ctxt)) { sp.edit().putString(AudioSettings.workarounds, "mediatek").apply() }
-            spListener.onSharedPreferenceChanged(sp, AudioSettings.workarounds)
-            Log.d("PHH-Audio", "Reapplied AudioSettings.workarounds on boot because unsupportedCommands is empty")
-        }
+        spListener.onSharedPreferenceChanged(sp, AudioSettings.workarounds)
     }
 }

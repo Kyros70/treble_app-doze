@@ -15,7 +15,6 @@ import androidx.appcompat.widget.Toolbar
 object MediatekSettings : Settings {
     val mtkTouchHintIsRotate = "key_mtk_mediatek_touch_hint_rotate"
     val mtkGedKpi = "key_mtk_mediatek_ged_kpi"
-    val cognitive = "key_mtk_force_cognitive"
 
     override fun enabled(context: Context): Boolean {
         val isMediatek = Tools.devicePlatform.toLowerCase().startsWith("mt")

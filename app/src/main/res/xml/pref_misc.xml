@@ -7,12 +7,6 @@
         android:layout="@layout/preference_category_custom">
         <SwitchPreference
             android:layout="@layout/preference_switch_custom"
-            android:defaultValue="false"
-            android:key="key_misc_biometricstrong"
-            android:title="@string/misc1"
-            android:summaryOn="@string/msic1_s" />
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
             android:defaultValue="true"
             android:key="key_misc_securize"
             android:title="Enable Securize"
@@ -23,12 +17,6 @@
             android:key="key_misc_treat_virtual_sensors_as_real"
             android:title="Treat virtual sensors as real"
             android:summary="Treat all virtual fingerprint sensors as real\nWarning: This can cause bootloops - use with extreme care\nRequires a reboot" />
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
-            android:defaultValue="0"
-            android:key="key_misc_launcher3"
-            android:title="@string/misc2"
-            android:summary="@string/disable_navigation_bar_summary" />
         <SwitchPreference
             android:layout="@layout/preference_switch_custom"
             android:defaultValue="false"
@@ -44,91 +32,15 @@
         <SwitchPreference
             android:layout="@layout/preference_switch_custom"
             android:defaultValue="false"
-            android:key="key_misc_activity_anim_perf_override"
-            android:title="Activity Anim Perf Override"
-            android:summary="Forces the use of performance optimization in activity animations\nRequires reboot" />
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
-            android:defaultValue="false"
             android:key="key_misc_lmk_tweaks"
             android:title="LMK Tweaks"
             android:summary="Apply tweaks to Low Memory Killer to improve stability and prevent aggressive shutdowns\nRequires reboot" />
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
-            android:defaultValue="false"
-            android:key="key_misc_bluetooth_fix"
-            android:title="Bluetooth fix"
-            android:summary="Maybe this will fix your Bluetooth problem.\nRequires reboot" />
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
-            android:defaultValue="false"
-            android:key="key_misc_unisoc_color_transform"
-            android:title="Unisoc black screen workaround"
-            android:summary="Enables a workaround for black screen issues on some Unisoc devices. May affect color-based display features. Requires framework support. Applies instantly" />
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
-            android:defaultValue="false"
-            android:key="key_misc_axion_props"
-            android:title="Axion props"
-            android:summary="enable axion props" />
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
-            android:defaultValue="false"
-            android:key="key_misc_scroll_boost"
-            android:title="Scroll Boost"
-            android:summary="Improves scrolling smoothness by applying a temporary performance boost during scroll gestures. On heavier apps, it may use a more aggressive performance profile depending on vendor support. On low-RAM devices, this may increase memory pressure and reduce smoothness in some situations." />
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
-            android:defaultValue="true"
-            android:key="key_misc_traffic_indicator"
-            android:title="Universal legacy-kernel BPF fallback"
-            android:summary="ON (true): uses the real kernel version and enables the safer traffic-statistics fallback. Recommended for older kernels and may keep the traffic indicator working. OFF (false): reports kernel 5.10.239 to enable the full BPF compatibility path and may fix firewall-bypass connectivity. Disabling the fallback can break the traffic indicator or cause a black screen, OEM screen, Wi-Fi boot failure, or bootloader issue on unsupported devices. Reboot required. This patch is universal for supported SoC vendors. The MTK BPF Patcher is optional and only applies to supported MediaTek kernels." />
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
-            android:defaultValue="false"
-            android:key="key_misc_a2dp_identity"
-            android:title="A2dp Identity address"
-            android:summary="Some devices connect over Bluetooth correctly, but fail to expose the A2DP\noutput route to AudioPolicyManager, causing media audio to continue playing\nthrough the phone speaker." />
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
-            android:defaultValue="false"
-            android:key="key_misc_safe_media"
-            android:title="Safe Media Volume Bypas"
-            android:summary="disable framework safe media volume checks, warnings, and volume clamping." />
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
-            android:defaultValue="false"
-            android:key="key_misc_disable_expensive_rendering_mode"
-            android:title="@string/displaysamsung_3"
-            android:summary="@string/displaysamsung_3s" />
     </PreferenceCategory>
 
 <PreferenceCategory
     android:title="Codec Settings"
     android:layout="@layout/preference_category_custom">
 
-    <Preference
-        android:layout="@layout/preference_custom"
-        android:selectable="false"
-        android:title="⚠️ Important: Use only ONE codec mode at a time"
-        android:summary="Enable only ONE option below. After changing, you MUST reboot before trying another mode. Using multiple modes simultaneously will cause conflicts and may break video recording or screen recording.\n\nCodec modes (choose ONE):\n• Prefer hardware codecs (default)\n• Force software codecs\n• Fix screen recorder\n• Max compatibility mode\n• Legacy mode\n• Max performance mode\n• Unisoc Instagram Reels Fix\n\nAllowed combinations:\n• C2 Input Surface OMX Workaround CAN be used with any mode above\n• All other options CANNOT be combined\n\nStart with 'Prefer hardware codecs' (default) and only change if you have issues." />
-
-    <SwitchPreference
-        android:layout="@layout/preference_switch_custom"
-        android:defaultValue="false"
-        android:key="key_misc_prefer_hw_codecs"
-        android:title="Prefer hardware codecs (Recommended)"
-        android:summary="✅ BEST FOR PERFORMANCE - Default mode for most devices
-        Uses vendor hardware codecs for video recording and playback:
-        • Lowest CPU usage and best battery life
-        • Fastest encoding/decoding speed
-        • Hardware-accelerated by SoC DSP
-        • Default mode - try this first
-
-        ⚠️ Enable ONLY this option, then reboot
-        ❌ Disable all other codec modes
-
-        Performance: ⭐⭐⭐⭐⭐ | Battery: Excellent | CPU: Low" />
 
     <SwitchPreference
         android:layout="@layout/preference_switch_custom"
@@ -155,155 +67,14 @@
 
         Performance: ⭐⭐⭐ | Battery: Fair | CPU: High" />
 
-    <SwitchPreference
-        android:layout="@layout/preference_switch_custom"
-        android:defaultValue="false"
-        android:key="key_misc_fix_screen_recorder"
-        android:title="Fix screen recorder"
-        android:summary="⚠️ FOR SCREEN RECORDING ISSUES ONLY
-        Compatibility mode for screen recording:
-        • Prioritizes software codecs for input surface
-        • Balanced C2 + OMX configuration
-        • Fixes black screen or crashes
-        • Intermediate OMX rank (256)
 
-        ⚠️ Steps:
-        1. Disable all other codec modes
-        2. Enable this option
-        3. REBOOT immediately
-        4. Test screen recording
 
-        Enable if:
-        • Screen recorder shows black screen
-        • Screen recorder crashes on start
-        • Recording stops unexpectedly
 
-        Performance: ⭐⭐⭐⭐ | Battery: Good | CPU: Medium" />
 
-    <SwitchPreference
-        android:layout="@layout/preference_switch_custom"
-        android:defaultValue="false"
-        android:key="key_misc_max_compatibility"
-        android:title="Max compatibility mode"
-        android:summary="⚠️ BALANCED MODE - For older or problematic devices
-        Maximum codec compatibility:
-        • C2 + OMX work together
-        • OMX preferred but C2 available
-        • Good for Android 10 or older
-        • Fallback for buggy C2
-
-        ⚠️ Steps:
-        1. Disable all other codec modes
-        2. Enable this option
-        3. REBOOT immediately
-        4. Test recording
-
-        Enable if:
-        • Video recording fails with other modes
-        • Screen recorder unstable
-        • Old device with codec issues
-        • Android 10 or older
-
-        Performance: ⭐⭐⭐ | Battery: Fair | CPU: Medium-High" />
-
-    <SwitchPreference
-        android:layout="@layout/preference_switch_custom"
-        android:defaultValue="false"
-        android:key="key_misc_legacy_mode"
-        android:title="Legacy mode (Android 9 or less)"
-        android:summary="⚠️ FOR ANDROID 9 OR BOOTLOOPS ONLY - Last resort
-
-        Disables Codec2 completely:
-        • Only OMX codecs available
-        • Slowest mode, highest CPU usage
-        • For Android 9 or older devices
-        • Use if C2 causes bootloop/crash
-
-        ⚠️ Steps:
-        1. Disable all other codec modes
-        2. Enable this option
-        3. REBOOT immediately
-        4. Test device stability
-
-        Enable ONLY if:
-        • Android 9 or older
-        • C2 causes bootloop
-        • System crashes with C2
-        • All other modes fail
-
-        WARNING: Avoid unless necessary!
-        Performance: ⭐⭐ | Battery: Poor | CPU: High" />
-
-    <SwitchPreference
-        android:layout="@layout/preference_switch_custom"
-        android:defaultValue="false"
-        android:key="key_misc_max_performance"
-        android:title="Max performance mode"
-        android:summary="⚠️ MAXIMUM PERFORMANCE - For Android 11+ with stable C2
-
-        Prioritizes C2 hardware codecs above all:
-        • C2 hardware codecs always first
-        • OMX as last resort only (rank 1024)
-        • Maximum encoding speed
-        • Best battery efficiency
-        • Lowest CPU usage
-
-        ⚠️ Steps:
-        1. Disable all other codec modes
-        2. Enable this option
-        3. REBOOT immediately
-        4. Test recording
-
-        Enable ONLY if:
-        • Android 11 or newer
-        • C2 implementation is stable
-        • You want maximum performance
-        • Video recording works perfectly
-
-        WARNING: May cause compatibility issues on older devices!
-        Performance: ⭐⭐⭐⭐⭐ | Battery: Best | CPU: Lowest" />
-
-    <SwitchPreference
-        android:layout="@layout/preference_switch_custom"
-        android:defaultValue="false"
-        android:key="key_misc_c2inputsurface_omx"
-        android:title="C2 Input Surface OMX Workaround"
-        android:summary="⚠️ FOR SPECIFIC DEVICES ONLY - Advanced troubleshooting
-
-        Forces OMX input surface path (skips Codec2 entirely):
-        • Use ONLY if video recording or screen recorder fails with all modes above
-        • This option CAN be enabled together with other codec modes
-        • Unlike other options, this does NOT conflict with them
-        • Default system behavior uses -1 (automatic), this sets to 0 (OMX only)
-
-        ⚠️ When to use:
-        • You tried all codec modes above and still have issues
-        • Video recording crashes or produces corrupted files
-        • Screen recorder shows black screen
-        • Other users with your device model report this fixes the issue
-
-        ⚠️ Steps:
-        1. Try all codec modes above first
-        2. If none work, enable this option
-        3. No reboot required - applies instantly
-        4. Test video/screen recording
-
-        Performance: Same as selected codec mode | Compatibility: ⭐⭐⭐⭐⭐ for buggy Codec2 HALs" />
-    <SwitchPreference
-        android:layout="@layout/preference_switch_custom"
-        android:defaultValue="false"
-        android:key="key_misc_unisoc_reels_fix"
-        android:title="Unisoc Instagram Reels Fix"
-        android:summary="⚠️ FOR UNISOC DEVICES ONLY - Instagram Reels/Stories black screen fix\n\nOptimized codec configuration for Unisoc chipsets:\n• Fixes black screen in Instagram Reels\n• Fixes black screen in Instagram Stories\n• Fixes video playback issues in social apps\n• Uses vendor codecs with OMX priority\n• Does NOT set media.c2.hal.selection (required for Unisoc)\n\n⚠️ IMPORTANT: This is a codec mode - DO NOT use with other codec options!\n• Disable ALL other codec modes before enabling this\n• This option CANNOT be combined with other codec modes\n• Only compatible with: C2 Input Surface OMX Workaround\n\n⚠️ Steps:\n1. Disable all other codec modes (Prefer HW, SW, Screen Recorder, etc.)\n2. Enable this option\n3. REBOOT immediately\n4. Test Instagram Reels/Stories\n\nEnable ONLY if:\n• You have a Unisoc device (UMS9230, UMS9125, etc.)\n• Instagram Reels shows black screen\n• Instagram Stories recording fails\n• Other video apps work but Instagram doesn't\n\nPerformance: ⭐⭐⭐⭐ | Battery: Good | CPU: Medium\nCompatibility: ⭐⭐⭐⭐⭐ for Unisoc Instagram issues" />
 </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/oneplus_display"
         android:layout="@layout/preference_category_custom">
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
-            android:defaultValue="false"
-            android:key="key_misc_unihertz_dt2w"
-            android:title="@string/displaysamsung_1" />
         <SwitchPreference
             android:layout="@layout/preference_switch_custom"
             android:defaultValue="false"

@@ -24,11 +24,6 @@
             android:defaultValue="false"
             android:key="key_oppo_usb_otg"
             android:title="@string/otg_usb" />
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
-            android:defaultValue="false"
-            android:key="key_oppo_dc_diming"
-            android:title="@string/dc_diming" />
     </PreferenceCategory>
 
 </PreferenceScreen>

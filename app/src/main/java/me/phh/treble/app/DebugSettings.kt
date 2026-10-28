@@ -20,12 +20,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 
 object DebugSettings : Settings {
-    val restartApp = "key_debug_restart_app"
-    val debuggable = "key_debug_debuggable_mode"
 
     val stateMap = mapOf(
         "key_debug_remotectl" to "persist.sys.phh.remote",
-        "key_debug_debuggable_mode" to "persist.sys.phh.debuggable",
     )
 
     override fun enabled(context: Context): Boolean {
@@ -40,11 +37,6 @@ class DebugSettingsFragment : PreferenceFragment() {
         addPreferencesFromResource(R.xml.pref_debug)
 
         Tools.updatePreferenceState(this, DebugSettings.stateMap)
-
-        findPreference(DebugSettings.restartApp)?.setOnPreferenceClickListener {
-            restartApp()
-            true
-        }
 
         Log.d("PHH", "Debug settings loaded successfully")
     }

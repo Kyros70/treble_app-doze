@@ -21,10 +21,6 @@ object Mediatek: EntryStartup {
                 val value = sp.getBoolean(key, false)
                 SystemProperties.set("persist.sys.phh.mtk_ged_kpi", if (value) "1" else "0")
             }
-            MediatekSettings.cognitive -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.radio.force_cognitive", if (value) "true" else "false")
-            }
         }
     }
 

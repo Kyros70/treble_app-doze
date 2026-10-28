@@ -69,34 +69,6 @@
             android:title="@string/forceallowaod" />
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="RENDER ENGINE"
-        android:layout="@layout/preference_category_custom">
-        <ListPreference
-            android:layout="@layout/preference_list_custom"
-            android:defaultValue=""
-            android:entries="@array/pref_display_sf_renderengine_backend"
-            android:entryValues="@array/pref_display_sf_renderengine_backend_values"
-            android:key="key_display_sf_renderengine_backend"
-            android:title="Render Engine"
-            android:summary="Reboot is required to apply it" />
-        <ListPreference
-            android:layout="@layout/preference_list_custom"
-            android:defaultValue=""
-            android:entries="@array/pref_display_hwui_backend"
-            android:entryValues="@array/pref_display_hwui_backend_values"
-            android:key="key_display_sf_hwui_backend"
-            android:title="Render Hardware UI"
-            android:summary="Reboot is required to apply it" />
-        <ListPreference
-            android:layout="@layout/preference_list_custom"
-            android:defaultValue="kawase"
-            android:entries="@array/pref_display_sf_blur_algorithm"
-            android:entryValues="@array/pref_display_sf_blur_algorithm_values"
-            android:key="key_display_sf_blur_algorithm"
-            android:title="Blur Mecanism"
-            android:summary="Reboot is required to apply it" />
-        </PreferenceCategory>
 
     <PreferenceCategory
         android:title="@string/backlight_displaytitle"

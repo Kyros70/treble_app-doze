@@ -13,10 +13,6 @@ object Ui : EntryStartup {
 
     val spListener = SharedPreferences.OnSharedPreferenceChangeListener { sp, key ->
         when (key) {
-            UiSettings.twoPaneLayout -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.two_pane_layout", if (value) "true" else "false")
-            }
 
             UiSettings.forceNavbarOff -> {
                 val value = sp.getBoolean(key, false)
@@ -119,6 +115,5 @@ object Ui : EntryStartup {
         this.ctxt = WeakReference(ctxt.applicationContext)
 
         // Refresh parameters on boot
-        Telephony.spListener.onSharedPreferenceChanged(sp, UiSettings.twoPaneLayout)
     }
 }

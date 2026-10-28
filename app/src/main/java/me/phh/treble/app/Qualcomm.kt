@@ -23,16 +23,6 @@ object Qualcomm: EntryStartup {
                 val value = if(b) "true" else "false"
                 Tools.safeSetprop("persist.sys.phh.disable_stereo_voip", value)
             }
-            QualcommSettings.directOutputVoip -> {
-                val b = sp.getBoolean(key, false)
-                val value = if(b) "true" else "false"
-                Tools.safeSetprop("persist.sys.phh.direct_output_voip", value)
-            }
-            QualcommSettings.restartQCrild -> {
-                val b = sp.getBoolean(key, false)
-                val value = if(b) "1" else "0"
-                Tools.safeSetprop("persist.sys.phh.restart_qcrild", value)
-            }
         }
     }
 

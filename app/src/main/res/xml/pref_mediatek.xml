@@ -19,15 +19,5 @@
             android:summary="@string/summary_ged_kpi" />
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="@string/title_telephony_mediatek"
-        android:layout="@layout/preference_category_custom">
-        <SwitchPreference
-            android:defaultValue="false"
-            android:layout="@layout/preference_switch_custom"
-            android:key="key_mtk_force_cognitive"
-            android:title="@string/title_force_cognitive"
-            android:summary="@string/summary_force_cognitive" />
-    </PreferenceCategory>
 
 </PreferenceScreen>

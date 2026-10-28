@@ -21,10 +21,6 @@ object Misc: EntryStartup {
 
     val spListener = SharedPreferences.OnSharedPreferenceChangeListener { sp, key ->
         when (key) {
-            MiscSettings.biometricstrong -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.biometricstrong", if (value) "true" else "false")
-            }
             MiscSettings.securize -> {
                 val value = sp.getBoolean(key, false)
                 SystemProperties.set("persist.sys.phh.securize", if (value) "1" else "0")
@@ -32,10 +28,6 @@ object Misc: EntryStartup {
             MiscSettings.treatVirtualSensorsAsReal -> {
                 val value = sp.getBoolean(key, false)
                 SystemProperties.set("persist.sys.phh.virtual_sensors_are_real", if (value) "1" else "0")
-            }
-            MiscSettings.launcher3 -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.launcher3", if (value) "true" else "false")
             }
             MiscSettings.disableSaeUpgrade -> {
                 val value = sp.getBoolean(key, false)
@@ -50,90 +42,13 @@ object Misc: EntryStartup {
                 val value = sp.getBoolean(key, true)
                 SystemProperties.set("persist.sys.phh.disable_display_doze_suspend", if (value) "true" else "false")
             }
-            MiscSettings.activityAnimPerfOverride -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.activity_anim_perf_override", if (value) "true" else "false")
-            }
             MiscSettings.lmkTweaks -> {
                 val value = sp.getBoolean(key, false)
                 SystemProperties.set("persist.sys.phh.lmk_tweaks", if (value) "true" else "false")
             }
-            MiscSettings.disableExpensiveRenderingMode -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.disable_expensive_rendering_mode", if (value) "1" else "0")
-            }
-            MiscSettings.preferHwCodecs -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.prefer_hw_codecs", if (value) "true" else "false")
-            }
             MiscSettings.preferSwCodecs -> {
                 val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.prefer_sw_codecs", if (value) "true" else "false")
-            }
-            MiscSettings.fixScreenRecorder -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.fix_screen_recorder", if (value) "true" else "false")
-            }
-            MiscSettings.maxCompatibility -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.max_compatibility", if (value) "true" else "false")
-            }
-            MiscSettings.legacyMode -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.legacy_mode", if (value) "true" else "false")
-            }
-            MiscSettings.maxPerformance -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.max_performance", if (value) "true" else "false")
-            }
-            MiscSettings.c2InputSurfaceOmx -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.c2inputsurface_omx", if (value) "true" else "false")
-            }
-            MiscSettings.unisocReelsFix -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.unisoc_reels_fix", if (value) "true" else "false")
-            }
-            MiscSettings.bluetoothFix -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.bluetooth_fix", if (value) "true" else "false")
-            }
-            MiscSettings.unisocColorTransform -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.unisoc_color_transform_workaround", if (value) "true" else "false")
-            }
-            MiscSettings.axionProps -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.axion_props", if (value) "true" else "false")
-            }
-            MiscSettings.scrollBoost -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.scroll_boost", if (value) "true" else "false")
-            }
-            MiscSettings.a2dpAddr -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.a2dp_identity_addr", if (value) "true" else "false")
-            }
-            MiscSettings.safeMedia -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.disable_safe_media_volume", if (value) "true" else "false")
-            }
-            MiscSettings.trafficFix -> {
-                val value = sp.getBoolean(key, true)
-                SystemProperties.set("persist.sys.phh.traffic_indicator_fallback", if (value) "true" else "false")
-            }
-            MiscSettings.unihertzdt2w -> {
-                val value = sp.getBoolean(key, false)
-                try {
-                    val binder = android.os.Binder.allowBlocking(
-                        ServiceManager.waitForDeclaredService(IAgoldDaemon.DESCRIPTOR + "/default")
-                    )
-                    val instance = IAgoldDaemon.Stub.asInterface(binder)
-                    val ret = instance.SendMessageToIoctl(100, 0, if (value) 1 else 0, if (value) 1 else 0)
-                    Log.d("PHH", "Setting agold touch mode returned $ret")
-                } catch (t: Throwable) {
-                    Log.d("PHH", "Setting agold touch mode failed", t)
-                }
+                SystemProperties.set("persist.sys.phh.force_sw_codecs", if (value) "true" else "false")
             }
             MiscSettings.dt2w -> {
                 val value = sp.getBoolean(key, false)
@@ -150,18 +65,7 @@ object Misc: EntryStartup {
 
         // Refresh on boot
         spListener.onSharedPreferenceChanged(sp, MiscSettings.storageFUSE)
-        spListener.onSharedPreferenceChanged(sp, MiscSettings.unihertzdt2w)
         spListener.onSharedPreferenceChanged(sp, MiscSettings.dt2w)
-        spListener.onSharedPreferenceChanged(sp, MiscSettings.unisocColorTransform)
-        spListener.onSharedPreferenceChanged(sp, MiscSettings.trafficFix)
-        spListener.onSharedPreferenceChanged(sp, MiscSettings.safeMedia)
-        spListener.onSharedPreferenceChanged(sp, MiscSettings.preferHwCodecs)
         spListener.onSharedPreferenceChanged(sp, MiscSettings.preferSwCodecs)
-        spListener.onSharedPreferenceChanged(sp, MiscSettings.fixScreenRecorder)
-        spListener.onSharedPreferenceChanged(sp, MiscSettings.maxCompatibility)
-        spListener.onSharedPreferenceChanged(sp, MiscSettings.legacyMode)
-        spListener.onSharedPreferenceChanged(sp, MiscSettings.maxPerformance)
-        spListener.onSharedPreferenceChanged(sp, MiscSettings.c2InputSurfaceOmx)
-        spListener.onSharedPreferenceChanged(sp, MiscSettings.unisocReelsFix)
     }
 }

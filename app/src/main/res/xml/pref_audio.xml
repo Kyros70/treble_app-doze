@@ -50,12 +50,6 @@
             android:key="key_bt_dynamic_sysbta"
             android:title="@string/wide_bt_hal" />
 
-        <EditTextPreference
-            android:layout="@layout/preference_edittext_custom"
-            android:defaultValue="1"
-            android:key="key_bt_max_bluetooth_audio_devices"
-            android:title="@string/max_connect_bt_audio"
-            android:inputType="number" />
 
         <ListPreference
             android:layout="@layout/preference_list_custom"
@@ -77,12 +71,6 @@
             android:title="@string/disable_le_apcf"
             android:summary="@string/le_acpf_sumarry" />
 
-        <EditTextPreference
-            android:layout="@layout/preference_edittext_custom"
-            android:key="key_bt_le_version_cap"
-            android:title="@string/cap_le_vendorversion"
-            android:inputType="number"
-            android:summary="Default" />
 
         <ListPreference
             android:layout="@layout/preference_list_custom"
@@ -92,33 +80,9 @@
             android:entryValues="@array/pref_audio_bt_workarounds_values"
             android:title="@string/predefined_workground_bluetooth" />
 
-        <EditTextPreference
-            android:layout="@layout/preference_edittext_custom"
-            android:key="key_bt_unsupported_commands"
-            android:title="@string/set_bluetooth_commands_unssuported_title"
-            android:inputType="text"
-            android:summary="Default" />
 
-        <EditTextPreference
-            android:layout="@layout/preference_edittext_custom"
-            android:key="key_bt_unsupported_og"
-            android:title="@string/unssuported_bluetooth_of_features"
-            android:inputType="text"
-            android:summary="Default" />
 
-        <EditTextPreference
-            android:layout="@layout/preference_edittext_custom"
-            android:key="key_bt_unsupported_le"
-            android:title="@string/unssuported_le_features_bluetooth"
-            android:inputType="text"
-            android:summary="Default" />
 
-        <EditTextPreference
-            android:layout="@layout/preference_edittext_custom"
-            android:key="key_bt_unsupported_states"
-            android:title="@string/unssuported_bluetooth_stats"
-            android:inputType="text"
-            android:summary="Default" />
     </PreferenceCategory>
 
 </PreferenceScreen>

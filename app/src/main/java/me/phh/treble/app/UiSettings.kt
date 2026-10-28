@@ -22,7 +22,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 
 object UiSettings : Settings {
-    val twoPaneLayout = "key_ui_two_pane_layout"
     val forceNavbarOff = "key_UI_force_navbar_off"
     val fodColor = "key_ui_fod_color"
     val pointerType = "key_ui_pointer_type"

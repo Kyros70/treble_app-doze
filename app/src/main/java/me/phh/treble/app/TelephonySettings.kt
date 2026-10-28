@@ -25,10 +25,7 @@ object TelephonySettings : Settings {
     val restartRil = "key_telephony_restart_ril"
     val forceDisplay5g = "key_telephony_force_display_5g"
     val removeTelephony = "key_telephony_removetelephony"
-    val simCount = "key_telephony_simcount"
-    val resetSimCount = "key_telephony_reset_simcount"
     var patchSmsc = "key_misc_patch_smsc"
-    val restrictednetworking = "key_telephony_restricted_networking"
 
     override fun enabled(context: Context): Boolean {
         Log.d("PHH", "Initializing Telephony settings")
@@ -48,17 +45,8 @@ class TelephonySettingsFragment : PreferenceFragment() {
                 SettingsActivity.bindPreferenceSummaryToValue(it)
             }
 
-            findPreference(TelephonySettings.simCount)?.let {
-                SettingsActivity.bindPreferenceSummaryToValue(it)
-            }
-
             findPreference(TelephonySettings.removeTelephony)?.setOnPreferenceClickListener {
                 removeTelephonyDialog()
-                true
-            }
-
-            findPreference(TelephonySettings.resetSimCount)?.setOnPreferenceClickListener {
-                resetSimCountDialog()
                 true
             }
         }
