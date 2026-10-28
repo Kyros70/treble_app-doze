@@ -7,12 +7,6 @@
         android:layout="@layout/preference_category_custom">
         <SwitchPreference
             android:layout="@layout/preference_switch_custom"
-            android:defaultValue="true"
-            android:key="key_misc_securize"
-            android:title="Enable Securize"
-            android:summary="Disabling may fix play services on uncertified devices" />
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
             android:defaultValue="false"
             android:key="key_misc_treat_virtual_sensors_as_real"
             android:title="Treat virtual sensors as real"
@@ -29,12 +23,6 @@
             android:key="key_misc_storage_fuse"
             android:title="@string/misc5"
             android:summary="@string/msic5_s" />
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
-            android:defaultValue="false"
-            android:key="key_misc_lmk_tweaks"
-            android:title="LMK Tweaks"
-            android:summary="Apply tweaks to Low Memory Killer to improve stability and prevent aggressive shutdowns\nRequires reboot" />
     </PreferenceCategory>
 
 <PreferenceCategory
@@ -82,11 +70,6 @@
     <PreferenceCategory
         android:title="@string/oneplus_display"
         android:layout="@layout/preference_category_custom">
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
-            android:defaultValue="false"
-            android:key="key_misc_disable_display_doze_suspend"
-            android:title="@string/displaysamsung_2" />
         <SwitchPreference
             android:layout="@layout/preference_switch_custom"
             android:defaultValue="false"

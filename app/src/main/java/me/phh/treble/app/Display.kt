@@ -99,11 +99,6 @@ object Display: EntryStartup {
                 // Note: Reversed value because the prop is enabling
                 SystemProperties.set("persist.sys.phh.enable_sf_gl_backpressure", if (value) "0" else "1")
             }
-            DisplaySettings.disableSfHwcBackpressure -> {
-                val value = sp.getBoolean(key, false)
-                // Note: Reversed value because the prop is enabling
-                SystemProperties.set("persist.sys.phh.enable_sf_hwc_backpressure", if (value) "0" else "1")
-            }
             // Latch Unsigned Buffers
             DisplaySettings.sfLatchUnsignaled -> {
                 val value = sp.getBoolean(key, false)

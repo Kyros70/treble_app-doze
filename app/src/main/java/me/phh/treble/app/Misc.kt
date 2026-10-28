@@ -21,10 +21,6 @@ object Misc: EntryStartup {
 
     val spListener = SharedPreferences.OnSharedPreferenceChangeListener { sp, key ->
         when (key) {
-            MiscSettings.securize -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.securize", if (value) "1" else "0")
-            }
             MiscSettings.treatVirtualSensorsAsReal -> {
                 val value = sp.getBoolean(key, false)
                 SystemProperties.set("persist.sys.phh.virtual_sensors_are_real", if (value) "1" else "0")
@@ -37,14 +33,6 @@ object Misc: EntryStartup {
                 val value = sp.getBoolean(key, false)
                 Log.d("PHH", "Setting storageFUSE to $value")
                 SystemProperties.set("persist.sys.fflag.override.settings_fuse", if (!value) "true" else "false")
-            }
-            MiscSettings.disableDisplayDozeSuspend -> {
-                val value = sp.getBoolean(key, true)
-                SystemProperties.set("persist.sys.phh.disable_display_doze_suspend", if (value) "true" else "false")
-            }
-            MiscSettings.lmkTweaks -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.lmk_tweaks", if (value) "true" else "false")
             }
             MiscSettings.maxAspectRatioPreO -> {
                 val value = sp.getString(key, "1.86")

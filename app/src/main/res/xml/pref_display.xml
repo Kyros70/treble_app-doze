@@ -27,12 +27,6 @@
             android:title="@string/sfgl"
             android:summary="@string/sfgl_summary"/>
 
-        <SwitchPreference
-            android:defaultValue="false"
-            android:layout="@layout/preference_switch_custom"
-            android:key="key_display_disable_sf_hwc_backpressure"
-            android:title="@string/sfhwc_disable"
-            android:summary="@string/sfhwc_disablesummary"/>
 
         <SwitchPreference
             android:defaultValue="false"
