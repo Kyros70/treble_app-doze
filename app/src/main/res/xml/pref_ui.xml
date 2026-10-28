@@ -36,35 +36,6 @@
             android:title="@string/fod_icon_color" />
     </PreferenceCategory>
 
-    <!-- STATUS BAR -->
-    <PreferenceCategory
-        android:title="@string/stats_bar"
-        android:layout="@layout/preference_category_custom">
-        <EditTextPreference
-            android:layout="@layout/preference_edittext_custom"
-            android:key="key_ui_sb_padding_top"
-            android:title="@string/bar_top_padding"
-            android:inputType="number"
-            android:hint="@string/sysui_restart"
-            android:summary="@string/sysui_restart" />
-
-        <EditTextPreference
-            android:layout="@layout/preference_edittext_custom"
-            android:key="key_ui_sb_padding_start"
-            android:title="@string/bar_start_padding"
-            android:inputType="number"
-            android:hint="@string/sysui_restart"
-            android:summary="@string/sysui_restart" />
-
-        <EditTextPreference
-            android:layout="@layout/preference_edittext_custom"
-            android:key="key_ui_sb_padding_end"
-            android:title="@string/bar_end_padding"
-            android:inputType="number"
-            android:hint="@string/sysui_restart"
-            android:summary="@string/sysui_restart" />
-    </PreferenceCategory>
-
     <PreferenceCategory
         android:title="@string/styles_title"
         android:layout="@layout/preference_category_custom">

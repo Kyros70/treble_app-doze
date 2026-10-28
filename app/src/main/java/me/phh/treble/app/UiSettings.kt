@@ -25,11 +25,6 @@ object UiSettings : Settings {
     val forceNavbarOff = "key_UI_force_navbar_off"
     val fodColor = "key_ui_fod_color"
     val pointerType = "key_ui_pointer_type"
-    val statusbarpaddingtop = "key_ui_sb_padding_top"
-    val statusbarpaddingstart = "key_ui_sb_padding_start"
-    val statusbarpaddingend = "key_ui_sb_padding_end"
-    val qsclockleftpadding = "key_misc_qs_clock_left_padding"
-    val qsclockrightpadding = "key_misc_qs_clock_right_padding"
     val restartSystemUI = "key_ui_restart_systemui"
 
     val accentColor = "key_custom_accent_color"
@@ -37,11 +32,6 @@ object UiSettings : Settings {
     val fontFamily = "key_custom_font_family"
     val iconPack = "key_custom_icon_pack"
 
-    val stateMap = mapOf(
-        statusbarpaddingtop to "persist.sys.phh.status_bar_padding_top",
-        statusbarpaddingstart to "persist.sys.phh.status_bar_padding_start",
-        statusbarpaddingend to "persist.sys.phh.status_bar_padding_end"
-    )
 
     override fun enabled(context: Context): Boolean {
         Log.d("PHH", "Initializing UI settings")
@@ -57,16 +47,9 @@ class UiSettingsFragment : PreferenceFragment() {
         addPreferencesFromResource(R.xml.pref_ui)
 
         if (UiSettings.enabled(context)) {
-            Tools.updatePreferenceState(this, UiSettings.stateMap)
-
             listOf(
                 UiSettings.fodColor,
                 UiSettings.pointerType,
-                UiSettings.statusbarpaddingtop,
-                UiSettings.statusbarpaddingstart,
-                UiSettings.statusbarpaddingend,
-                UiSettings.qsclockleftpadding,
-                UiSettings.qsclockrightpadding,
                 UiSettings.accentColor,
                 UiSettings.iconShape,
                 UiSettings.fontFamily,

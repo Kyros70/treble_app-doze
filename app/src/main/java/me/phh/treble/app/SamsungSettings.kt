@@ -31,7 +31,6 @@ object SamsungSettings : Settings {
     val cameraIds = "key_samsung_camera_ids"
     val remosaic = "key_samsung_remosaic"
     val video60 = "key_samsung_video60"
-    val video60GrapheneOS = "key_samsung_video60_grapheneos"
     val fodSingleClick = "key_samsung_fod_single_click"
     val flashStrength = "key_samsung_flash_strength"
     val disableBackMic = "key_samsung_disable_back_mic"

@@ -46,6 +46,11 @@ object Misc: EntryStartup {
                 val value = sp.getBoolean(key, false)
                 SystemProperties.set("persist.sys.phh.lmk_tweaks", if (value) "true" else "false")
             }
+            MiscSettings.maxAspectRatioPreO -> {
+                val value = sp.getString(key, "1.86")
+                SystemProperties.set("persist.sys.max_aspect_ratio.pre_o", value)
+                Log.d("PHH", "Setting max aspect ratio for pre-o app $value")
+            }
             MiscSettings.preferSwCodecs -> {
                 val value = sp.getBoolean(key, false)
                 SystemProperties.set("persist.sys.phh.force_sw_codecs", if (value) "true" else "false")
@@ -67,5 +72,6 @@ object Misc: EntryStartup {
         spListener.onSharedPreferenceChanged(sp, MiscSettings.storageFUSE)
         spListener.onSharedPreferenceChanged(sp, MiscSettings.dt2w)
         spListener.onSharedPreferenceChanged(sp, MiscSettings.preferSwCodecs)
+        spListener.onSharedPreferenceChanged(sp, MiscSettings.maxAspectRatioPreO)
     }
 }

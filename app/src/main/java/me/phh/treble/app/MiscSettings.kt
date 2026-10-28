@@ -21,6 +21,7 @@ object MiscSettings : Settings {
     val dt2w = "key_misc_dt2w"
     val lmkTweaks = "key_misc_lmk_tweaks"
     val preferSwCodecs = "key_misc_force_sw_codecs"
+    val maxAspectRatioPreO = "key_misc_max_aspect_ratio_pre_o"
 
     override fun enabled(context: Context): Boolean = true
     fun isRoot() = File(Tools.phhsu).exists()

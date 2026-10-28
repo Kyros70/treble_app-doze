@@ -73,13 +73,6 @@
             android:key="key_samsung_video60"
             android:title="Offer 60fps video to camera apps"
             android:summary="On cameras that support it, lets apps record 16:9 video up to 1080p at 60fps. Reopen the camera app after changing" />
-        <SwitchPreference
-            android:layout="@layout/preference_switch_custom"
-            android:defaultValue="false"
-            android:dependency="key_samsung_video60"
-            android:key="key_samsung_video60_grapheneos"
-            android:title="Record GrapheneOS Camera videos at 60fps"
-            android:summary="GrapheneOS Camera has no frame rate setting. Records its 1080p and 720p videos at 60fps. Reopen the camera app after changing" />
 		<EditTextPreference
             android:layout="@layout/preference_edittext_custom"
             android:defaultValue="1"

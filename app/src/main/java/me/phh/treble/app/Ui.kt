@@ -44,21 +44,6 @@ object Ui : EntryStartup {
                 SystemProperties.set("persist.sys.phh.fod_color", value)
             }
 
-            UiSettings.statusbarpaddingtop -> {
-                val value = sp.getString(key, "-1")?.toIntOrNull() ?: -1
-                SystemProperties.set("persist.sys.phh.status_bar_padding_top", value.toString())
-            }
-
-            UiSettings.statusbarpaddingstart -> {
-                val value = sp.getString(key, "-1")?.toIntOrNull() ?: -1
-                SystemProperties.set("persist.sys.phh.status_bar_padding_start", value.toString())
-            }
-
-            UiSettings.statusbarpaddingend -> {
-                val value = sp.getString(key, "-1")?.toIntOrNull() ?: -1
-                SystemProperties.set("persist.sys.phh.status_bar_padding_end", value.toString())
-            }
-
             UiSettings.accentColor -> {
                 val value = sp.getString(key, "")
                 val overlays = OverlayPicker.getThemeOverlays(OverlayPicker.ThemeOverlay.AccentColor)

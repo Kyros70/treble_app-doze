@@ -42,6 +42,13 @@
     android:layout="@layout/preference_category_custom">
 
 
+    <ListPreference
+        android:layout="@layout/preference_list_custom"
+        android:defaultValue="1.86"
+        android:entries="@array/pref_misc_max_aspect_ratio_pre_o"
+        android:entryValues="@array/pref_misc_max_aspect_ratio_pre_o_values"
+        android:key="key_misc_max_aspect_ratio_pre_o"
+        android:title="Compatibility max aspect ratio" />
     <SwitchPreference
         android:layout="@layout/preference_switch_custom"
         android:defaultValue="false"
