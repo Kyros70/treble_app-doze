@@ -13,14 +13,10 @@ import androidx.appcompat.widget.Toolbar
 import java.io.File
 
 object MiscSettings : Settings {
-    val securize = "key_misc_securize"
     val treatVirtualSensorsAsReal = "key_misc_treat_virtual_sensors_as_real"
     val disableSaeUpgrade = "key_misc_disable_sae_upgrade"
     val storageFUSE = "key_misc_storage_fuse"
-    val disableDisplayDozeSuspend = "key_misc_disable_display_doze_suspend"
     val dt2w = "key_misc_dt2w"
-    val lmkTweaks = "key_misc_lmk_tweaks"
-    val preferSwCodecs = "key_misc_force_sw_codecs"
     val maxAspectRatioPreO = "key_misc_max_aspect_ratio_pre_o"
 
     override fun enabled(context: Context): Boolean = true

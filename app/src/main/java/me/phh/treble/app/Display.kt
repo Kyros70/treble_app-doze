@@ -99,26 +99,9 @@ object Display: EntryStartup {
                 // Note: Reversed value because the prop is enabling
                 SystemProperties.set("persist.sys.phh.enable_sf_gl_backpressure", if (value) "0" else "1")
             }
-            DisplaySettings.disableSfHwcBackpressure -> {
-                val value = sp.getBoolean(key, false)
-                // Note: Reversed value because the prop is enabling
-                SystemProperties.set("persist.sys.phh.enable_sf_hwc_backpressure", if (value) "0" else "1")
-            }
             // Latch Unsigned Buffers
-            DisplaySettings.sfLatchUnsignaled -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.sf_latch_unsignaled", if (value) "1" else "0")
-            }
             // Auto Latch Unsigned
-            DisplaySettings.sfAutoLatchUnsignaled -> {
-                val value = sp.getBoolean(key, true)
-                SystemProperties.set("persist.sys.phh.sf_auto_latch_unsignaled", if (value) "1" else "0")
-            }
             // Disable Backpressure
-            DisplaySettings.sfDisableBackpressure -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.sf_disable_backpressure", if (value) "1" else "0")
-            }
         }
     }
 

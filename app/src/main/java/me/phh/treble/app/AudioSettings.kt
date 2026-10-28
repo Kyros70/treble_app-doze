@@ -23,7 +23,6 @@ object AudioSettings : Settings {
     val sysbta = "key_bt_dynamic_sysbta"
     val workarounds = "key_bt_workarounds"
     val escoTransportUnitSize = "key_bt_esco_transport_unit_size"
-    val disableLeApcfExtended = "key_bt_disable_le_apcfe"
 
     override fun enabled(context: Context): Boolean {
         Log.d("PHH", "Initializing Audio settings")

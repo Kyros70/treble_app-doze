@@ -24,10 +24,6 @@ object DisplaySettings : Settings {
     val noHwcomposer = "key_display_no_hwcomposer"
     val aod = "key_display_aod"
     val disableSfGlBackpressure = "key_display_disable_sf_gl_backpressure"
-    val disableSfHwcBackpressure = "key_display_disable_sf_hwc_backpressure"
-    val sfLatchUnsignaled = "key_display_sf_latch_unsignaled"
-    val sfAutoLatchUnsignaled = "key_display_sf_auto_latch_unsignaled"
-    val sfDisableBackpressure = "key_display_sf_disable_backpressure"
 
     override fun enabled(context: Context): Boolean {
         Log.d("PHH", "Initializing Display settings")
