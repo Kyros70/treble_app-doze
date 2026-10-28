@@ -7,6 +7,12 @@
         android:layout="@layout/preference_category_custom">
         <SwitchPreference
             android:layout="@layout/preference_switch_custom"
+            android:defaultValue="true"
+            android:key="key_misc_securize"
+            android:title="Enable Securize"
+            android:summary="Disabling may fix play services on uncertified devices" />
+        <SwitchPreference
+            android:layout="@layout/preference_switch_custom"
             android:defaultValue="false"
             android:key="key_misc_treat_virtual_sensors_as_real"
             android:title="Treat virtual sensors as real"
@@ -23,6 +29,12 @@
             android:key="key_misc_storage_fuse"
             android:title="@string/misc5"
             android:summary="@string/msic5_s" />
+        <SwitchPreference
+            android:layout="@layout/preference_switch_custom"
+            android:defaultValue="false"
+            android:key="key_misc_lmk_tweaks"
+            android:title="LMK Tweaks"
+            android:summary="Apply tweaks to Low Memory Killer to improve stability and prevent aggressive shutdowns\nRequires reboot" />
     </PreferenceCategory>
 
 <PreferenceCategory
@@ -37,6 +49,30 @@
         android:entryValues="@array/pref_misc_max_aspect_ratio_pre_o_values"
         android:key="key_misc_max_aspect_ratio_pre_o"
         android:title="Compatibility max aspect ratio" />
+    <SwitchPreference
+        android:layout="@layout/preference_switch_custom"
+        android:defaultValue="false"
+        android:key="key_misc_force_sw_codecs"
+        android:title="Force software codecs"
+        android:summary="⚠️ USE ONLY IF HW CODECS FAIL - Higher CPU usage
+        Uses software/OMX codecs instead of hardware:
+        • Higher CPU usage and battery drain
+        • Slower encoding but more compatible
+        • Use c2.android.* software codecs
+        • Fallback for buggy hardware codecs
+
+        ⚠️ Steps:
+        1. Disable 'Prefer hardware codecs'
+        2. Enable this option
+        3. REBOOT immediately
+        4. Test video recording
+
+        Enable ONLY if:
+        • Video recording crashes or hangs
+        • Corrupted video files
+        • Audio/video sync issues
+
+        Performance: ⭐⭐⭐ | Battery: Fair | CPU: High" />
 
 
 
@@ -46,6 +82,11 @@
     <PreferenceCategory
         android:title="@string/oneplus_display"
         android:layout="@layout/preference_category_custom">
+        <SwitchPreference
+            android:layout="@layout/preference_switch_custom"
+            android:defaultValue="false"
+            android:key="key_misc_disable_display_doze_suspend"
+            android:title="@string/displaysamsung_2" />
         <SwitchPreference
             android:layout="@layout/preference_switch_custom"
             android:defaultValue="false"

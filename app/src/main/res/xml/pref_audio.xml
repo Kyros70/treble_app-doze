@@ -64,6 +64,12 @@
     <PreferenceCategory
         android:title="@string/bt_workgrounds_title"
         android:layout="@layout/preference_category_custom">
+        <SwitchPreference
+            android:layout="@layout/preference_switch_custom"
+            android:key="key_bt_disable_le_apcfe"
+            android:defaultValue="false"
+            android:title="@string/disable_le_apcf"
+            android:summary="@string/le_acpf_sumarry" />
 
 
         <ListPreference

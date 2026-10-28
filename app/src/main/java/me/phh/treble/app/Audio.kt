@@ -56,6 +56,10 @@ object Audio: EntryStartup {
                 val value = sp.getString(key, "0")
                 SystemProperties.set("persist.sys.bt.esco_transport_unit_size", value)
             }
+            AudioSettings.disableLeApcfExtended -> {
+                val value = sp.getBoolean(key, false)
+                SystemProperties.set("persist.sys.bt.le.disable_apcf_extended_features", if (value) "1" else "0")
+            }
         }
     }
 

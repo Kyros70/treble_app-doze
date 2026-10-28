@@ -21,6 +21,10 @@ object Misc: EntryStartup {
 
     val spListener = SharedPreferences.OnSharedPreferenceChangeListener { sp, key ->
         when (key) {
+            MiscSettings.securize -> {
+                val value = sp.getBoolean(key, false)
+                SystemProperties.set("persist.sys.phh.securize", if (value) "1" else "0")
+            }
             MiscSettings.treatVirtualSensorsAsReal -> {
                 val value = sp.getBoolean(key, false)
                 SystemProperties.set("persist.sys.phh.virtual_sensors_are_real", if (value) "1" else "0")
@@ -34,10 +38,22 @@ object Misc: EntryStartup {
                 Log.d("PHH", "Setting storageFUSE to $value")
                 SystemProperties.set("persist.sys.fflag.override.settings_fuse", if (!value) "true" else "false")
             }
+            MiscSettings.disableDisplayDozeSuspend -> {
+                val value = sp.getBoolean(key, true)
+                SystemProperties.set("persist.sys.phh.disable_display_doze_suspend", if (value) "true" else "false")
+            }
+            MiscSettings.lmkTweaks -> {
+                val value = sp.getBoolean(key, false)
+                SystemProperties.set("persist.sys.phh.lmk_tweaks", if (value) "true" else "false")
+            }
             MiscSettings.maxAspectRatioPreO -> {
                 val value = sp.getString(key, "1.86")
                 SystemProperties.set("persist.sys.max_aspect_ratio.pre_o", value)
                 Log.d("PHH", "Setting max aspect ratio for pre-o app $value")
+            }
+            MiscSettings.preferSwCodecs -> {
+                val value = sp.getBoolean(key, false)
+                SystemProperties.set("persist.sys.phh.force_sw_codecs", if (value) "true" else "false")
             }
             MiscSettings.dt2w -> {
                 val value = sp.getBoolean(key, false)
@@ -55,6 +71,7 @@ object Misc: EntryStartup {
         // Refresh on boot
         spListener.onSharedPreferenceChanged(sp, MiscSettings.storageFUSE)
         spListener.onSharedPreferenceChanged(sp, MiscSettings.dt2w)
+        spListener.onSharedPreferenceChanged(sp, MiscSettings.preferSwCodecs)
         spListener.onSharedPreferenceChanged(sp, MiscSettings.maxAspectRatioPreO)
     }
 }
