@@ -110,10 +110,6 @@ object Display: EntryStartup {
                 SystemProperties.set("persist.sys.phh.sf_auto_latch_unsignaled", if (value) "1" else "0")
             }
             // Disable Backpressure
-            DisplaySettings.sfDisableBackpressure -> {
-                val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.sf_disable_backpressure", if (value) "1" else "0")
-            }
         }
     }
 

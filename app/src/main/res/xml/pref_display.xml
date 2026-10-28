@@ -42,12 +42,6 @@
             android:title="@string/sf_auto_latch_unsignaled_title"
             android:summary="@string/sf_auto_latch_unsignaled_summary" />
 
-        <SwitchPreference
-            android:defaultValue="false"
-            android:layout="@layout/preference_switch_custom"
-            android:key="key_display_sf_disable_backpressure"
-            android:title="@string/sf_disable_backpressure_title"
-            android:summary="@string/sf_disable_backpressure_summary" />
 
         <SwitchPreference
             android:defaultValue="false"
